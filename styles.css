@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 100px;
+  display: flex;
+gap: 16px;
+flex-wrap: wrap;
+}
+
+.book-container {
+  border: solid black 2px;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+
