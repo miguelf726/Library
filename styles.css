@@ -9,8 +9,16 @@
   max-width: 1200px;
   padding: 100px;
   display: flex;
-gap: 16px;
-flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.btn-container {
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.btn {
+
 }
 
 .book-container {
@@ -19,5 +27,3 @@ flex-wrap: wrap;
   padding: 10px 20px;
   border-radius: 20px;
 }
-
-
