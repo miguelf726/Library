@@ -1,3 +1,6 @@
+const dialog = document.getElementById("dialog")
+const addBook = document.querySelector('.add-btn')
+
 const myLibrary = []
 
 console.log(myLibrary)
@@ -55,3 +58,7 @@ bookContainer.innerHTML= booksHTML
 
 }
 displayBook()
+
+addBook.addEventListener('click', ()=>{
+  dialog.showModal()
+})
