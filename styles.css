@@ -18,6 +18,11 @@
 }
 
 .btn {
+padding: 12px 24px;
+border-radius: 16px;
+font-size: 24px;
+background-color: black;
+color: white;
 
 }
 
