@@ -1,5 +1,6 @@
 const dialog = document.getElementById("dialog")
 const addBook = document.querySelector('.add-btn')
+const closeModal = document.querySelector('.close-btn')
 
 const myLibrary = []
 
@@ -61,4 +62,9 @@ displayBook()
 
 addBook.addEventListener('click', ()=>{
   dialog.showModal()
+})
+
+closeModal.addEventListener('click', ()=> {
+  // e.preventDefault()
+  dialog.close()
 })
