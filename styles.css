@@ -36,14 +36,19 @@ dialog[open] {
   opacity: 1;
 }
 dialog {
-opacity: 0;
+  opacity: 0;
   width: 400px;
   height: 400px;
   margin: auto;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   text-align: left;
+}
+
+label {
+  font-size: 24px;
+  font: bold;
 }
