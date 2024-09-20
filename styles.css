@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* BODY */
+
 .container {
   margin: 0 auto;
   max-width: 1200px;
@@ -32,23 +34,55 @@
   border-radius: 20px;
 }
 
+/* DIALOG */
+
 dialog[open] {
   opacity: 1;
+  /* z-index: 1; */
 }
 dialog {
   opacity: 0;
+  /* z-index: -; */
   width: 400px;
   height: 400px;
   margin: auto;
+  border-radius: 12px;
+ 
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  width: 75%;
+  margin: 0 auto;
+  padding: 6px;
+  margin-top: 16px;
+
 }
 
-label {
-  font-size: 24px;
-  font: bold;
+.input-container {
+  display: flex;
+  flex-direction: column;
 }
+
+
+label {
+  font-size: 20px;
+  font: bolder;
+}
+
+input {
+  padding: 12px;
+  border-radius: 12px;
+  border: black solid;
+}
+
+.close-btn {
+ margin-top: 12px;
+}
+
+.status {
+  display: flex;
+  gap: 20px;
+}
+
