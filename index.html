@@ -28,26 +28,15 @@
                 <input maxlength="99999" type="number" id="pages">
             </div>
             <br>
-            <div class="status">
-                <label for="status">Status:</label>
-                <div>
-                    <input name="status" type="radio" id="read">
-                    <label for="read">Read</label>
-                </div>
-
-                <div>
-                    <input name="status" type="radio" id="unread" checked
-                >
-                    <label for="unread">Unread</label>
-                </div>
+            <div class="read-container">
+                <label for="read">Read? :</label>
+                <input name="read" type="checkbox" id="read">
+                
             </div>
-
-
-            <!-- <div class="close-btn-container"> -->
-            <button class="btn close-btn">Cancel</button>
-
-            <!-- </div> -->
-
+            <div class="dialog-btns">
+                <button class="btn close-btn">Close</button>
+                <button type="submit" class="btn submit-book">Add</button>
+            </div>
         </form>
 
     </dialog>
@@ -56,14 +45,18 @@
         <div class="btn-container">
             <button class="btn add-btn">Add book</button>
         </div>
-        <div class="book-container">
-            <div class="book-info">
-            <h3 class="book-title">The Hobbit</h3>
-            <p class="book-author">J.R.R. Tolkien</p>
-            <p class="book-pages">295</p>
-            <p class="book-status">unread</p>
+        <div class="library">
+            <!-- <div class="book-container">
+                <div class="book-info">
+                    <h3 class="book-title">The Hobbit</h3>
+                    <p class="book-author">J.R.R. Tolkien</p>
+                    <p class="book-pages">295</p>
+                    <p class="book-read">unread</p>
+                </div>
+            </div> -->
         </div>
-        </div>
+       
+        
 
     </div>
 

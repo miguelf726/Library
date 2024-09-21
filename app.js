@@ -1,10 +1,11 @@
-const dialog = document.getElementById("dialog")
-const addBook = document.querySelector('.add-btn')
-const closeModal = document.querySelector('.close-btn')
+const dialog = document.getElementById("dialog");
+const addBook = document.querySelector(".add-btn");
+const closeModal = document.querySelector(".close-btn");
+const submitBook = document.querySelector(".submit-book");
 
-const myLibrary = []
+const myLibrary = [];
 
-console.log(myLibrary)
+console.log(myLibrary);
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -23,48 +24,69 @@ function Book(title, author, pages, read) {
   };
 }
 
+function addBookToLibrary() {
+  // const Book1 = new Book(
+  //     (title = "The Hobbit"),
+  //     (author = "J.R.R. Tolkien"),
+  //     (pages = "295"),
+  //     (read = "not read")
+  //   );
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const read = document.querySelector("#read").value;
 
+  console.log(read.value);
 
-function addBookToLibrary(){
-    const Book1 = new Book(
-        (title = "The Hobbit"),
-        (author = "J.R.R. Tolkien"),
-        (pages = "295"),
-        (read = "not read yet")
-      );
-      
-      console.log(Book1.bookInfo());
-      
-myLibrary.push(Book1)
+  myLibrary.push(new Book(author, title, pages, read));
+
+  //   console.log(Book1.bookInfo());
+
+  // myLibrary.push(Book1);
 }
 
-addBookToLibrary()
 
+submitBook.addEventListener("click", (e) => {
+  if (
+    document.querySelector("#title").value != "" &&
+    document.querySelector("#author").value != "" &&
+    document.querySelector("#pages").value != ""
+  ) {
+    e.preventDefault();
+    addBookToLibrary();
+    displayBook()
+  }
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  dialog.close();
+});
 
 function displayBook() {
-const bookContainer = document.querySelector('.book-container')
-console.log(bookContainer)
+  const library = document.querySelector(".library");
 
+  let booksHTML = myLibrary.map((book) => {
+    return `
+         <div class="book-container">
+                <div class="book-info">
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-author">${book.title}</p>
+                    <p class="book-pages">${book.title}</p>
+                    <p class="book-read">${book.title}</p>
+                </div>
+            </div>`;
+  });
 
-let booksHTML = myLibrary.map((book)=>{
-  return `<div class="book-info">
-            <h3 class="book-title">${book.title}</h3>
-            <p class="book-author">${book.title}</p>
-            <p class="book-pages">${book.title}</p>
-            <p class="book-status">${book.title}</p>
-        </div> `
-})
-
-bookContainer.innerHTML= booksHTML
-
+  library.innerHTML = booksHTML;
 }
-displayBook()
 
-addBook.addEventListener('click', ()=>{
-  dialog.showModal()
-})
+addBook.addEventListener("click", () => {
+  dialog.showModal();
+});
 
-closeModal.addEventListener('click', ()=> {
+closeModal.addEventListener("click", () => {
   // e.preventDefault()
-  dialog.close()
-})
+  dialog.close();
+});
+
+console.log(myLibrary);
