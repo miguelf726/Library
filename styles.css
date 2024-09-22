@@ -35,14 +35,20 @@ body {
   display: flex;
   width: 600px;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 .book-container {
   border: solid black 2px;
   width: 150px;
+  height: 250px;
   padding: 10px 20px;
   border-radius: 20px;
   background-color: white;
+}
+
+p{
+  overflow-wrap: anywhere;
 }
 
 /* DIALOG */

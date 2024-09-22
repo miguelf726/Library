@@ -24,13 +24,15 @@ function Book(title, author, pages, read) {
   };
 }
 
+addBook.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+  dialog.close();
+});
+
 function addBookToLibrary() {
-  // const Book1 = new Book(
-  //     (title = "The Hobbit"),
-  //     (author = "J.R.R. Tolkien"),
-  //     (pages = "295"),
-  //     (read = "not read")
-  //   );
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const pages = document.querySelector("#pages").value;
@@ -39,12 +41,7 @@ function addBookToLibrary() {
   console.log(read.value);
 
   myLibrary.push(new Book(author, title, pages, read));
-
-  //   console.log(Book1.bookInfo());
-
-  // myLibrary.push(Book1);
 }
-
 
 submitBook.addEventListener("click", (e) => {
   if (
@@ -54,8 +51,9 @@ submitBook.addEventListener("click", (e) => {
   ) {
     e.preventDefault();
     addBookToLibrary();
-    displayBook()
   }
+displayBook()
+
   document.querySelector("#title").value = "";
   document.querySelector("#author").value = "";
   document.querySelector("#pages").value = "";
@@ -64,29 +62,29 @@ submitBook.addEventListener("click", (e) => {
 
 function displayBook() {
   const library = document.querySelector(".library");
+  const book = document.createElement("div");
+  book.className = "book-container";
+  const checkbox = document.createElement('input')
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.checked = document.querySelector("#read").checked;
 
-  let booksHTML = myLibrary.map((book) => {
-    return `
-         <div class="book-container">
-                <div class="book-info">
-                    <h3 class="book-title">${book.title}</h3>
-                    <p class="book-author">${book.title}</p>
-                    <p class="book-pages">${book.title}</p>
-                    <p class="book-read">${book.title}</p>
-                </div>
-            </div>`;
+  library.appendChild(book)
+
+
+
+  book.innerHTML=myLibrary.map((book) => {
+  return( `<h3>Title:</h3>
+                    <p class="book-title">${book.title}</p>
+                    <h3>Author:</h3>
+                    <p class="book-author">${book.author}</p>
+                    <h3>Pages:</h3>
+                    <p class="book-pages">${book.pages}</p>
+                    <h3>Read:</h3>
+                    `
+                  );
   });
 
-  library.innerHTML = booksHTML;
+  book.appendChild(checkbox);
+
+
 }
-
-addBook.addEventListener("click", () => {
-  dialog.showModal();
-});
-
-closeModal.addEventListener("click", () => {
-  // e.preventDefault()
-  dialog.close();
-});
-
-console.log(myLibrary);
