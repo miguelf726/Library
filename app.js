@@ -70,7 +70,8 @@ function displayBook() {
   bookInfo.className = "book-container";
   checkbox.setAttribute("type", "checkbox");
   checkbox.checked = document.querySelector("#read").checked;
-  deleteBtn.className="delete-btn";
+  checkbox.className= 'checkbox'
+  deleteBtn.className=" btn delete-btn";
   deleteBtn.textContent = "Delete";
 
   deleteBtn.addEventListener("click", () => {
@@ -86,7 +87,7 @@ function displayBook() {
 <p class="book-author">${myLibrary[book].author}</p>
 <h3>Pages:</h3>
 <p class="book-pages">${myLibrary[book].pages}</p>
-<h3>Read:</h3>`;
+<h3 class='read-title' >Read:</h3>`;
     bookInfo.appendChild(checkbox);
     bookInfo.appendChild(deleteBtn);
   }

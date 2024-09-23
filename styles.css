@@ -45,19 +45,47 @@ body {
   padding: 10px 20px;
   border-radius: 20px;
   background-color: white;
+  
 }
 
-p{
+/* h3, p {
+  margin-bottom: 4px;
+} */
+h3,p {
+margin-bottom: 2px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 16px;
   overflow-wrap: anywhere;
 }
 
 .delete-btn {
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 24px;
-  background-color: black;
-  color: white;
+  font-size: 16px;
+  display: block;
+  margin: 16px auto 0;
 }
+
+.btn:hover{
+  background-color: gray;
+}
+
+.read-title {
+  display: inline;
+}
+
+.checkbox {
+height: 20px;
+width: 20px;
+position: relative;
+left: 8px;
+top: 4px;
+}
+
 
 /* DIALOG */
 
