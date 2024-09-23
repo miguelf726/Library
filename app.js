@@ -11,26 +11,27 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.bookInfo = function () {
-    return (
-      this.title +
-      " by " +
-      this.author +
-      ", " +
-      this.pages +
-      " pages, " +
-      this.read
-    );
-  };
+
+  // this.bookInfo = function () {
+  //   return (
+  //     this.title +
+  //     " by " +
+  //     this.author +
+  //     ", " +
+  //     this.pages +
+  //     " pages, " +
+  //     this.read
+  //   );
+  // };
 }
 
 addBook.addEventListener("click", () => {
   dialog.showModal();
 });
 
-closeModal.addEventListener("click", () => {
-  dialog.close();
-});
+// closeModal.addEventListener("click", () => {
+//   dialog.close();
+// });
 
 function addBookToLibrary() {
   const title = document.querySelector("#title").value;
@@ -51,40 +52,42 @@ submitBook.addEventListener("click", (e) => {
   ) {
     e.preventDefault();
     addBookToLibrary();
-  }
-displayBook()
+    displayBook();
 
-  document.querySelector("#title").value = "";
-  document.querySelector("#author").value = "";
-  document.querySelector("#pages").value = "";
-  dialog.close();
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
+    document.querySelector("#pages").value = "";
+    dialog.close();
+  }
 });
 
 function displayBook() {
   const library = document.querySelector(".library");
-  const book = document.createElement("div");
-  book.className = "book-container";
-  const checkbox = document.createElement('input')
+  const bookInfo = document.createElement("div");
+  const checkbox = document.createElement("input");
+  const deleteBtn = document.createElement("button");
+
+  bookInfo.className = "book-container";
   checkbox.setAttribute("type", "checkbox");
   checkbox.checked = document.querySelector("#read").checked;
+  deleteBtn.className="delete-btn";
+  deleteBtn.textContent = "Delete";
 
-  library.appendChild(book)
-
-
-
-  book.innerHTML=myLibrary.map((book) => {
-  return( `<h3>Title:</h3>
-                    <p class="book-title">${book.title}</p>
-                    <h3>Author:</h3>
-                    <p class="book-author">${book.author}</p>
-                    <h3>Pages:</h3>
-                    <p class="book-pages">${book.pages}</p>
-                    <h3>Read:</h3>
-                    `
-                  );
+  deleteBtn.addEventListener("click", () => {
+    deleteBtn.parentElement.remove();
   });
 
-  book.appendChild(checkbox);
+  library.append(bookInfo);
 
-
+  for (let book in myLibrary) {
+    bookInfo.innerHTML = `  <h3>Title:</h3>
+<p class="book-title">${myLibrary[book].title}</p>
+<h3>Author:</h3>
+<p class="book-author">${myLibrary[book].author}</p>
+<h3>Pages:</h3>
+<p class="book-pages">${myLibrary[book].pages}</p>
+<h3>Read:</h3>`;
+    bookInfo.appendChild(checkbox);
+    bookInfo.appendChild(deleteBtn);
+  }
 }
